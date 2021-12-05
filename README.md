@@ -1,6 +1,69 @@
+# Project Steps
 
+## Create and Install Project
 
-# Myorg
+- Creating Project:
+```
+npx create-nx-workspace@latest
+```
+Workspace name (e.g., org name)     myorg
+What to create in the new workspace angular
+Application name                    todos
+Default stylesheet format           CSS
+
+- Starting Project:
+```
+npx nx serve todos
+```
+
+- Testing e2e Cypress:
+```
+nx e2e todos-e2e --watch
+```
+
+- Adding Nest(Backend) in the project:
+```
+nx list @nwrl/nest
+
+npx nx g @nrwl/nest:app api --frontendProject=todos
+```
+
+- Run backend:
+```
+npx nx serve api
+```
+
+- Creating a interface library to use in backend and frontend
+```
+npx nx g @nrwl/workspace:lib data
+```
+
+- Creating a UI library
+```
+npx nx g @nrwl/angular:lib ui
+```
+
+- Creating a component inside UI library
+```
+npx nx g component todos --project=ui --export
+```
+
+- Running a dependency graphic for all elements in projects
+```
+npx nx dep-graph
+```
+
+- Running computation caching to improve performance of commands
+```
+npx nx run todos:build
+```
+
+- Building multiple projects
+```
+npx nx run-many --target=build --projects=todos,apid
+```
+
+# About NX
 
 This project was generated using [Nx](https://nx.dev).
 
